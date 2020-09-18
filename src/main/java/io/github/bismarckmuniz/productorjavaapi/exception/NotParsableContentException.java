@@ -4,7 +4,7 @@ package io.github.bismarckmuniz.productorjavaapi.exception;
  * Class that implements NotParsableContentException in the API
  * 
  * @author Bismarck Muniz
- * @since 17/09/2020
+ * @since 09/17/2020
  */
 public class NotParsableContentException extends Exception{
 

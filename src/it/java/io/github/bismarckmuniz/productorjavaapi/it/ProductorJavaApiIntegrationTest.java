@@ -54,7 +54,7 @@ public class productorJavaApiIntegrationTest {
         dtoNsu123456.setNsu("123456");
         dtoNsu123456.setAuthorizationNumber("014785");
         dtoNsu123456.setTransactionDate(productorApiUtil.
-        		getLocalDateTimeFromString("2020-08-21T18:32:04.150Z"));
+        		getLocalDateTimeFromString("2020-9-18T2:32:04.150Z"));
         dtoNsu123456.setAmount(new BigDecimal(100d));
         dtoNsu123456.setType(TransactionTypeEnum.CARD);
         
@@ -79,7 +79,7 @@ public class productorJavaApiIntegrationTest {
     	TransactionDTO dtoNsu258963 = new TransactionDTO(); 
         dtoNsu258963.setNsu("258963");
         dtoNsu258963.setTransactionDate(productorApiUtil.
-        		getLocalDateTimeFromString("2020-08-21T18:32:04.150Z"));
+        		getLocalDateTimeFromString("2020-09-18T18:32:04.150Z"));
         dtoNsu258963.setAmount(new BigDecimal(2546.93));
         dtoNsu258963.setType(TransactionTypeEnum.MONEY);
         
@@ -107,7 +107,7 @@ public class productorJavaApiIntegrationTest {
         final HttpEntity<String> entity = new HttpEntity<>(headers);
         
         LocalDateTime startDateTime = productorApiUtil.
-        		getLocalDateTimeFromString("2020-08-21T18:32:04.150Z");
+        		getLocalDateTimeFromString("2020-09-18T18:32:04.150Z");
         LocalDateTime endDateTime = startDateTime.plusDays(5);
         
         String startDate = startDateTime.format(productorApiUtil.getDateFormater());
