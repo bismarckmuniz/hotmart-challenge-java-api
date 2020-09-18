@@ -1,12 +1,10 @@
 # hotmart-challenge-java-api
 
 ## About the API
-
-A productor API for managing transactions. The API main URL `/productor/v1`.
+Uma API de produto para gerenciamento de transações. The API main URL `/productor/v1`.
 
 ## Features
-
-This API provides HTTP endpoint's and tools for the following:
+Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 
 * Create a Transaction: `POST/productor/v1/transactions`
 * Update a Transaction: `PUT/productor/v1/transactions`
@@ -17,10 +15,10 @@ This API provides HTTP endpoint's and tools for the following:
 * Get Statistics about the transactions of the API: `GET/productor/v1/statistics`
 
 ### Details
+Este ponto final é chamado para criar uma nova transação.
 
 `POST/productor/v1/transaction`
 
-This end-point is called to create a new transaction.
 
 **Body:**
 
@@ -36,21 +34,21 @@ This end-point is called to create a new transaction.
 
 **Where:**
 
-`id` - transaction id. It is automatically generated.
+`id` - id de transação. Ele é gerado automaticamente.
 
-`nsu` - identification number of a sales transaction using cards. May be null if transaction was paid in cash;
+`nsu` - número de identificação de uma transação de venda com cartões. Pode ser nulo se a transação foi paga em dinheiro;
 
-`authorizationNumber` - is a one-time code used in the processing of online transactions;
+`authorizationNumber` - é um código único usado no processamento de transações online;
 
-`amount` – transaction amount; a string of arbitrary length that is parsable as a BigDecimal;
+`amount` – valor da transação; uma sequência de comprimento arbitrário que pode ser analisada como BigDecimal;
 
-`transactionDate` – transaction time in the ISO 8601 format YYYY-MM-DDThh:mm:ss.sssZ in the Local timezone.
+`transactionDate` – hora da transação no formato ISO 8601 AAAA-MM-DDThh: mm: ss.sssZ no fuso horário local.
 
-`type` - transaction type: CARD (credit-card) or MONEY (paid in cash).
+`type` - tipo de transação: CARD (cartão de crédito) ou MONEY (pago em dinheiro).
 
-`links` - self-linking URL for the transaction. It is automatically generated.
+`links` - URL de auto-link para a transação. Ele é gerado automaticamente.
 
-Returns an empty body with one of the following:
+Retorna um corpo com um dos seguintes:
 
 * 201 - Created: Everything worked as expected.
 * 400 - Bad Request: the request was unacceptable, often due to missing a required parameter or invalid JSON.
@@ -62,7 +60,7 @@ Returns an empty body with one of the following:
 
 `PUT/productor/v1/transaction/{id}`
 
-This end-point is called to update a transaction.
+This end-point is chamda de update a transaction.
 
 **Body:**
 
@@ -77,8 +75,8 @@ This end-point is called to update a transaction.
 }
 ```
 
-Must be submitted the object that will be modified. Must return a transaction specified by ID and all fields recorded above, including links and
-the one that was updated.
+Deve ser enviado o objeto que será modificado. Deve retornar uma transação especificada por ID e todos os campos registrados acima, incluindo links e
+aquele que foi atualizado.
 
 ```json
 {
@@ -101,11 +99,11 @@ the one that was updated.
 
 `GET/productor/v1/transactions`
 
-This end-point returns all transactions created.
+This end-point retorna todas as transações created.
 
 `DELETE/productor/v1/transaction/{id}`
 
-This end-point causes a transaction for a specific id to be deleted, accepting an empty request body and return a 204 status code.
+This end-point transação para um id específico seja excluído, aceitando um corpo de solicitação vazio e retornando um código de status 204.
 
 **Where:**
 
@@ -113,7 +111,7 @@ This end-point causes a transaction for a specific id to be deleted, accepting a
 
 `GET/productor/v1/statistics`
 
-This end-point returns the statistics based on the transactions created.
+This end-point retorno the statistics based on the transactions created.
 
 **Returns:**
 
