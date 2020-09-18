@@ -1,7 +1,7 @@
 # hotmart-challenge-java-api
 
 ## About the API
-Uma API de produto para gerenciamento de transações. The API main URL `/productor/v1`.
+API de produto para gerenciamento de transações. API main URL `/productor/v1`.
 
 ## Features
 Esta API fornece endpoints HTTP e ferramentas para o seguinte:
@@ -15,7 +15,7 @@ Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 * Get Statistics about the transactions of the API: `GET/productor/v1/statistics`
 
 ### Details
-Este ponto final é chamado para criar uma nova transação.
+Este end-point é chamado para criar uma nova transação.
 
 `POST/productor/v1/transaction`
 
@@ -60,7 +60,7 @@ Retorna um corpo com um dos seguintes:
 
 `PUT/productor/v1/transaction/{id}`
 
-This end-point is chamda de update a transaction.
+Este end-point é chamado para dar update na transação.
 
 **Body:**
 
@@ -99,7 +99,7 @@ aquele que foi atualizado.
 
 `GET/productor/v1/transactions`
 
-This end-point retorna todas as transações created.
+Este end-point retorna todas as transações creadas.
 
 `DELETE/productor/v1/transaction/{id}`
 
@@ -111,7 +111,7 @@ This end-point transação para um id específico seja excluído, aceitando um c
 
 `GET/productor/v1/statistics`
 
-This end-point retorno the statistics based on the transactions created.
+Este end-point retorno a statistics com base na transações creadas.
 
 **Returns:**
 
@@ -151,7 +151,7 @@ All `BigDecimal` values always contain exactly two decimal places, e.g: `15.385`
 
 ### Technologies used
 
-This project was developed with:
+Este project foi elaborado e desenvolvido em cima desses pacotes:
 
 * **Java 11 (Java Development Kit - JDK: 11.0.7)**
 * **Spring Boot 2.3.3**
@@ -166,10 +166,11 @@ This project was developed with:
 * **Heroku**
 * **EhCache**
 * **Bucket4j 4.10.0**
+* **Swagger editor 3.0**
 
 ### Compile and Package
 
-The API also was developed to run with an `jar`. In order to generate this `jar`, you should run:
+A API também foi desenvolvida para rodar `jar`. A fim de gerar esse `jar`, procedimento é esse:
 
 ```bash
 mvn package
