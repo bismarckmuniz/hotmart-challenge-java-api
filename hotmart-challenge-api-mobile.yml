@@ -1,0 +1,798 @@
+swagger: '3.0'
+
+info:
+  description: Especificação da API Hotmart Challenge
+  version: 0.0.1
+  title: hotmart-challenge
+  contact:
+    name: Desafio Hotmart
+    email: bismarck@ufmg.br
+host: api.hotmart.com.br
+basePath: /v1/hotmart-challenge
+schemes:
+  - http
+produces:
+  - application/json
+consumes:
+  - application/json
+parameters:
+  IdProduto:
+    name: codigoProduto
+    type: integer
+    in: path
+    required: true
+    description: 'Código do produto'
+  IdComprador:
+    name: codigoComprador
+    type: integer
+    in: path
+    required: true
+    description: 'Código do comprador'
+  IdVendedor:
+    name: codigoVedendor
+    type: integer
+    in: path
+    required: true
+    description: 'Código do Vedendor'
+  IdVendas:
+    name: codigoVendas
+    type: integer
+    in: path
+    required: true
+    description: 'Código do Vedas'
+  IdCategoriaProduto:
+    name: codigoCategoriaProduto
+    type: integer
+    in: path
+    required: true
+    description: 'Código da cartegoria de Produto'
+  Descricao:
+    name: descricao
+    in: header
+    type: string
+    required: true
+    description: 'Descricao do produto'
+  Vendedor:
+    name: vendedor
+    in: header
+    type: string
+    required: true
+    description: 'Nome do vendedor'
+  Comprador:
+    name: comprador
+    in: header
+    type: string
+    required: true
+    description: 'Nome do comprador'
+  Produto:
+    name: produto
+    in: header
+    type: string
+    required: true
+    description: 'Nome do produto'
+definitions:
+  RetornoProdutos:
+    type: object
+    properties:
+      codigoProduto:
+        type: integer
+        description: 'id do produto'
+        example: 1
+      produto:
+        type: string
+        description: 'Nome do produto'
+        example: 'Produto-A1'
+      descrição:
+        type: string
+        description: 'Descrição do produto'
+        example: 'produto de teste A1'
+      dataCriação:
+        type: string
+        example: "16/09/2020"
+        description: 'data de criação'
+  RetornoComprador:
+    type: object
+    properties:
+      codigoComprador:
+        type: integer
+        description: 'id do produto'
+        example: 1
+      comprador:
+        type: string
+        description: 'Nome do comprador'
+        example: 'Nome do comprador'
+  RetornoVedendor:
+    type: object
+    properties:
+      codigoVedendor:
+        type: integer
+        description: 'id do vedendor'
+        example: 1
+      vendedor:
+        type: string
+        description: 'Nome do vedendor'
+        example: 'Nome do vedendor'
+  RetornoCategoria:
+    type: object
+    properties:
+      codigoCategoria:
+        type: integer
+        description: 'id do categoria'
+        example: 1
+      categoria:
+        type: string
+        description: 'Nome do categoria'
+        example: 'Nome do categoria'
+  RetornoProductCategory:
+    type: object
+    properties:
+      codigoCategoria:
+        type: integer
+        description: 'id do categoria'
+        example: 1
+      produto:
+        type: string
+        description: 'Produto da categoria'
+        example: 'Produto da categoria'
+  RetornoVendas:
+    type: object
+    properties:
+      codigoVendas:
+        type: integer
+        description: 'id do vendas'
+        example: 1
+      vendedor:
+        type: string
+        description: 'Nome do vedendor'
+        example: 'Juliana'
+      comprador:
+        type: string
+        description: 'Nome do comprador produto'
+        example: 'Bismarck'
+      produto:
+        type: string
+        description: 'Descrição do produto vendido'
+        example: 'Gopro Hero 7'
+  RetornoErro:
+    type: array
+    items:
+      $ref: '#/definitions/Erro'
+  Erro:
+    description: 'Erro de validação'
+    type: object
+    required:
+      - codigo
+      - descricao
+    properties:
+      codigo:
+        type: string
+        description: 'Código do erro'
+        example: 23
+      descricao:
+        type: string
+        description: 'Descrição do erro'
+        example: 'Nome não pode ficar em branco'
+paths:
+  /Product:
+    get:
+      tags:
+        - Product
+      summary: Recupera a lista geral de produtos
+      description: Recupera a lista de produtos
+      operationId: getConsultarProdutos
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'Lista de produtos'
+          schema:
+            $ref: '#/definitions/RetornoProdutos'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+    post:
+      tags:
+        - Product
+      summary: Faz cadastro de produto
+      description: Faz cadastro de produto
+      operationId: postCadastrarProduto
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdProduto'
+        - $ref: '#/parameters/Produto'
+        - $ref: '#/parameters/Descricao'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    put:
+      tags:
+        - Product
+      summary: Alterar cadastro de um produto
+      description: Alterar cadastro de um produto
+      operationId: putAlterarProduto
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdProduto'
+        - $ref: '#/parameters/Produto'
+        - $ref: '#/parameters/Descricao'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    delete:
+      tags:
+        - Product
+      summary: Deletar produto
+      description: Deletar produto
+      operationId: deletarProduto
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdProduto'
+      responses:
+        200:
+         description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /Product/{idProduct}:
+    get:
+      tags:
+        - Product
+      summary: Buscar informações de produtos por Id
+      description: Buscar informações de produtos por Id
+      operationId: getConsultarProdutoId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: idProduct
+          type: integer
+          in: path
+          required: true
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: '#/definitions/RetornoProdutos'
+        401:
+          description: Não autorizado
+        403:
+          description: Acesso negado
+        404:
+          description: Cartões não encontrados
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /Buyer:
+    get:
+      tags:
+        - Buyer
+      summary: Recupera a lista geral de comprador
+      description: Recupera a lista de comprador
+      operationId: getConsultarCommprador
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'Lista de comprador'
+          schema:
+            $ref: '#/definitions/RetornoComprador'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+    post:
+      tags:
+        - Buyer
+      summary: Cadastro de comprador
+      description: Cadastro de comprador
+      operationId: postCadastrarComprador
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdComprador'
+        - $ref: '#/parameters/Comprador'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    put:
+      tags:
+        - Buyer
+      summary: Alterar cadastro do comprador
+      description: Alterar cadastro do comprador
+      operationId: putAlterarComprador
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdComprador'
+        - $ref: '#/parameters/Comprador'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    delete:
+      tags:
+        - Buyer
+      summary: Deletar comprador
+      description: Deletar comprador
+      operationId: deletarComprador
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdComprador'
+      responses:
+        200:
+         description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /Buyer/{codigoComprador}:
+    get:
+      tags:
+        - Buyer
+      summary: Buscar informações do comprador especifico por id
+      description: Buscar informações do comprador especifico por id
+      operationId: getConsultarCompradorId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: codigoComprador
+          type: integer
+          in: path
+          required: true
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: '#/definitions/RetornoComprador'
+        401:
+          description: Não autorizado
+        403:
+          description: Acesso negado
+        404:
+          description: Cartões não encontrados
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /Salesman:
+    get:
+      tags:
+        - Salesman
+      summary: Recupera a lista geral de vendedores
+      description: Recupera a lista de vendedores
+      operationId: getConsultarVendedor
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'Lista de motivos'
+          schema:
+            $ref: '#/definitions/RetornoVedendor'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+    post:
+      tags:
+        - Salesman
+      summary: Salvar cadastro de vendedor
+      description: Salvar cadastro de vendedor
+      operationId: postCadastrarVendedor
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdVendedor'
+        - $ref: '#/parameters/Vendedor'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    put:
+      tags:
+        - Salesman
+      summary: Alterar o cadastro de vendedor
+      description: Alterar o cadastro de vendedor
+      operationId: putAlterarVendedor
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdVendedor'
+        - $ref: '#/parameters/Vendedor'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    delete:
+      tags:
+        - Salesman
+      summary: Deletar cadastro de vendedor
+      description: Deletar produto
+      operationId: deletarVendedor
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdVendedor'
+      responses:
+        200:
+         description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /Salesman/{IdVendedor}:
+    get:
+      tags:
+        - Salesman
+      summary: Buscar informações cadastro de vendedor por id
+      description: Buscar informações de produtos por id
+      operationId: getConsultarVendedorId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: IdVendedor
+          type: integer
+          in: path
+          required: true
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: '#/definitions/RetornoVedendor'
+        401:
+          description: Não autorizado
+        403:
+          description: Acesso negado
+        404:
+          description: Cartões não encontrados
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /ProductCategory:
+    get:
+      tags:
+        - ProductCategory
+      summary: Recupera a lista geral de categoria de produtos
+      description: Recupera a lista de categoria de produtos
+      operationId: getConsultarCategoria
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'Lista de motivos'
+          schema:
+            $ref: '#/definitions/RetornoCategoria'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+    post:
+      tags:
+        - ProductCategory
+      summary: Cadastro de categoria de produtos
+      description: Cadastro de categoria produto
+      operationId: postCadastrarCategoria
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdCategoriaProduto'
+        - $ref: '#/parameters/Produto'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    put:
+      tags:
+        - ProductCategory
+      summary: Alterar categoria produto
+      description: Alterar categoria produto
+      operationId: putAlterarCategoriaProduto
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdCategoriaProduto'
+        - $ref: '#/parameters/Produto'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    delete:
+      tags:
+        - ProductCategory
+      summary: Deletar categoria produto
+      description: Deletar categoria produto
+      operationId: deletarProductCategory
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdCategoriaProduto'
+      responses:
+        200:
+         description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /ProductCategory/{IdCategoriaProduto}:
+    get:
+      tags:
+        - ProductCategory
+      summary: Buscar informações de produtos por id
+      description: Buscar informações de produtos por id
+      operationId: getConsultarCategoriaProdutoId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: IdCategoriaProduto
+          type: integer
+          in: path
+          required: true
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: '#/definitions/RetornoProductCategory'
+        401:
+          description: Não autorizado
+        403:
+          description: Acesso negado
+        404:
+          description: Cartões não encontrados
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /Sales:
+    get:
+      tags:
+        - Sales
+      summary: Recupera a lista geral de vendas
+      description: Recupera a lista de vendas
+      operationId: getConsultarVenda
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: 'Lista de motivos'
+          schema:
+            $ref: '#/definitions/RetornoVendas'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+    post:
+      tags:
+        - Sales
+      summary: Salva a vendas
+      description: Salva a vendas
+      operationId: postCadastrarVendas
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/Vendedor'
+        - $ref: '#/parameters/Comprador'
+        - $ref: '#/parameters/Produto'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    put:
+      tags:
+        - Sales
+      summary: Alterar a lista de vendas
+      description: Alterar a lista de vendas
+      operationId: putAlterarVendas
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdVendas'
+        - $ref: '#/parameters/Produto'
+      responses:
+        200:
+          description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+    delete:
+      tags:
+        - Sales
+      summary: Deletar venda
+      description: Deletar venda
+      operationId: deletar Venda
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/IdVendas'
+      responses:
+        200:
+         description: 'Sucesso'
+        401:
+          description: 'Não autorizado'
+        403:
+          description: 'Não tem permissão para executar essa ação'
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'
+  /Sales/{IdVendedor}:
+    get:
+      tags:
+        - Sales
+      summary: Buscar informações da lista de vendas por id
+      description: Buscar informações da lista de vendas por id
+      operationId: getConsultarVendasId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: IdVendedor
+          type: integer
+          in: path
+          required: true
+      responses:
+        200:
+          description: "Sucesso"
+          schema:
+            $ref: '#/definitions/RetornoVedendor'
+        401:
+          description: Não autorizado
+        403:
+          description: Acesso negado
+        404:
+          description: Cartões não encontrados
+        500:
+          description: 'Internal Server Error'
+          schema:
+            $ref: '#/definitions/RetornoErro'

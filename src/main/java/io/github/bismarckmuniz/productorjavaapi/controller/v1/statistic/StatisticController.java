@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiOperation;
  * SpringBoot RestController that creates all service end-points related to the statistics.
  * 
  * @author Bismarck Muniz
- * @since 09/09/2019
+ * @since 17/09/2020
  */
 @RestController
 @RequestMapping("/productor/v1/statistics")

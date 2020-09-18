@@ -9,7 +9,7 @@ import io.github.bismarckmuniz.productorjavaapi.model.statistic.Statistic;
  * Interface that provides methods for manipulating Statistics objects.
  * 
  * @author Bismarck Muniz
- * @since 08/09/2019
+ * @since 18/09/2020
  */
 public interface StatisticService {
 	

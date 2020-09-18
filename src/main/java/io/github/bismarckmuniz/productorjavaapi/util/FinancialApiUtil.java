@@ -45,7 +45,7 @@ public class productorApiUtil {
 	 * Method that check if the Transaction is being created in the future.
 	 * 
 	 * @author Bismarck Muniz
-	 * @since 08/09/2019
+	 * @since 18/09/2020
 	 * 
 	 * @param transaction
 	 * @return boolean

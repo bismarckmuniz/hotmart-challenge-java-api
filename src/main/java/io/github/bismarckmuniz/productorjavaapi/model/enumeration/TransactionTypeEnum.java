@@ -4,7 +4,7 @@ package io.github.bismarckmuniz.productorjavaapi.model.enumeration;
  * Enum that classifies the transaction's payment type.
  * 
  * @author Bismarck Muniz
- * @since 14/09/2019
+ * @since 17/09/2020
  */
 public enum TransactionTypeEnum {
 	

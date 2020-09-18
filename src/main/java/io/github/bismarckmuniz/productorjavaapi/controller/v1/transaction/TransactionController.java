@@ -49,7 +49,7 @@ import lombok.extern.log4j.Log4j2;
  * SpringBoot RestController that creates all service end-points related to the transaction.
  * 
  * @author Bismarck Muniz
- * @since 08/09/2019
+ * @since 18/09/2020
  */
 @Log4j2
 @RestController

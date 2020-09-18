@@ -31,7 +31,7 @@ import io.github.bismarckmuniz.productorjavaapi.util.productorApiUtil;
  * Class that implements API integration tests.
  * 
  * @author Bismarck Muniz
- * @since 10/09/2019
+ * @since 18/09/2020
  */
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
