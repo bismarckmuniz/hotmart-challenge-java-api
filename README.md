@@ -29,7 +29,7 @@ This end-point is called to create a new transaction.
   "nsu": "123456",
   "authorizationNumber": "010203",
   "amount": "22.88",
-  "transactionDate": "2020-04-05T09:59:51.312Z",
+  "transactionDate": "2020-09-18T09:59:51.312Z",
   "type": "CARD",
 }
 ```
@@ -72,7 +72,7 @@ This end-point is called to update a transaction.
    "nsu": "123456",
    "authorizationNumber": "010203",
    "amount": "30.06",
-   "transactionDate": "2020-04-05T09:59:51.312Z",
+   "transactionDate": "2020-09-18T09:59:51.312Z",
    "type": "CARD"
 }
 ```
@@ -87,7 +87,7 @@ the one that was updated.
    		"nsu": "123456",
    		"authorizationNumber": "010203",
    		"amount": "30.06",
-   		"transactionDate": "2020-04-05T09:59:51.312Z",
+   		"transactionDate": "2020-09-18T09:59:51.312Z",
    		"type": "CARD",
    		"links": [
 	    	{
