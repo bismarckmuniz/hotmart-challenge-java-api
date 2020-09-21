@@ -1,8 +1,8 @@
-swagger: '3.0'
+swagger: '2.0'
 
 info:
   description: Especificação da API Hotmart Challenge
-  version: 0.0.1
+  version: 1.0.0
   title: hotmart-challenge
   contact:
     name: Desafio Hotmart
@@ -16,159 +16,159 @@ produces:
 consumes:
   - application/json
 parameters:
-  IdProduto:
-    name: codigoProduto
+  IdProduct:
+    name: productCode
     type: integer
     in: path
     required: true
     description: 'Código do produto'
-  IdComprador:
-    name: codigoComprador
+  IdBuyer:
+    name: buyerCode
     type: integer
     in: path
     required: true
     description: 'Código do comprador'
-  IdVendedor:
-    name: codigoVedendor
+  IdSalesman:
+    name: salesManCode
     type: integer
     in: path
     required: true
     description: 'Código do Vedendor'
-  IdVendas:
-    name: codigoVendas
+  IdSales:
+    name: salesCode
     type: integer
     in: path
     required: true
     description: 'Código do Vedas'
-  IdCategoriaProduto:
-    name: codigoCategoriaProduto
+  IdProductCategory:
+    name: ProductCategoryCode
     type: integer
     in: path
     required: true
     description: 'Código da cartegoria de Produto'
-  Descricao:
-    name: descricao
+  Description:
+    name: description
     in: header
     type: string
     required: true
     description: 'Descricao do produto'
-  Vendedor:
-    name: vendedor
+  SalesMan:
+    name: salesMan
     in: header
     type: string
     required: true
     description: 'Nome do vendedor'
-  Comprador:
-    name: comprador
+  Buyer:
+    name: buyer
     in: header
     type: string
     required: true
     description: 'Nome do comprador'
-  Produto:
-    name: produto
+  Product:
+    name: product
     in: header
     type: string
     required: true
     description: 'Nome do produto'
 definitions:
-  RetornoProdutos:
+  ProductReturn:
     type: object
     properties:
-      codigoProduto:
+      productCode:
         type: integer
         description: 'id do produto'
         example: 1
-      produto:
+      product:
         type: string
         description: 'Nome do produto'
         example: 'Produto-A1'
-      descrição:
+      description:
         type: string
         description: 'Descrição do produto'
         example: 'produto de teste A1'
-      dataCriação:
+      creationDate:
         type: string
         example: "16/09/2020"
         description: 'data de criação'
-  RetornoComprador:
+  BuyerReturn:
     type: object
     properties:
-      codigoComprador:
+      buyerCode:
         type: integer
         description: 'id do produto'
         example: 1
-      comprador:
+      buyer:
         type: string
         description: 'Nome do comprador'
         example: 'Nome do comprador'
-  RetornoVedendor:
+  SalesManReturn:
     type: object
     properties:
-      codigoVedendor:
+      SalesManCode:
         type: integer
         description: 'id do vedendor'
         example: 1
-      vendedor:
+      salesMan:
         type: string
         description: 'Nome do vedendor'
         example: 'Nome do vedendor'
-  RetornoCategoria:
+  CategoryReturn:
     type: object
     properties:
-      codigoCategoria:
+      productCategoryCode:
         type: integer
         description: 'id do categoria'
         example: 1
-      categoria:
+      productCategory:
         type: string
         description: 'Nome do categoria'
         example: 'Nome do categoria'
-  RetornoProductCategory:
+  ProductCategoryReturn:
     type: object
     properties:
-      codigoCategoria:
+      ProductCategoryCode:
         type: integer
         description: 'id do categoria'
         example: 1
-      produto:
+      ProductCategory:
         type: string
         description: 'Produto da categoria'
         example: 'Produto da categoria'
-  RetornoVendas:
+  SalesReturn:
     type: object
     properties:
-      codigoVendas:
+      salesCode:
         type: integer
         description: 'id do vendas'
         example: 1
-      vendedor:
+      salesMan:
         type: string
         description: 'Nome do vedendor'
         example: 'Juliana'
-      comprador:
+      buyer:
         type: string
         description: 'Nome do comprador produto'
         example: 'Bismarck'
-      produto:
+      product:
         type: string
         description: 'Descrição do produto vendido'
         example: 'Gopro Hero 7'
-  RetornoErro:
+  ErrorReturn:
     type: array
     items:
-      $ref: '#/definitions/Erro'
-  Erro:
+      $ref: '#/definitions/Error'
+  Error:
     description: 'Erro de validação'
     type: object
     required:
-      - codigo
-      - descricao
+      - code
+      - description
     properties:
-      codigo:
+      code:
         type: string
         description: 'Código do erro'
         example: 23
-      descricao:
+      description:
         type: string
         description: 'Descrição do erro'
         example: 'Nome não pode ficar em branco'
@@ -188,7 +188,7 @@ paths:
         200:
           description: 'Lista de produtos'
           schema:
-            $ref: '#/definitions/RetornoProdutos'
+            $ref: '#/definitions/ProductReturn'
         401:
           description: 'Não autorizado'
         403:
@@ -206,9 +206,9 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdProduto'
-        - $ref: '#/parameters/Produto'
-        - $ref: '#/parameters/Descricao'
+        - $ref: '#/parameters/IdProduct'
+        - $ref: '#/parameters/Product'
+        - $ref: '#/parameters/Description'
       responses:
         200:
           description: 'Sucesso'
@@ -219,7 +219,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     put:
       tags:
         - Product
@@ -231,9 +231,9 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdProduto'
-        - $ref: '#/parameters/Produto'
-        - $ref: '#/parameters/Descricao'
+        - $ref: '#/parameters/IdProduct'
+        - $ref: '#/parameters/Product'
+        - $ref: '#/parameters/Description'
       responses:
         200:
           description: 'Sucesso'
@@ -244,7 +244,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     delete:
       tags:
         - Product
@@ -256,7 +256,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdProduto'
+        - $ref: '#/parameters/IdProduct'
       responses:
         200:
          description: 'Sucesso'
@@ -267,7 +267,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
   /Product/{idProduct}:
     get:
       tags:
@@ -288,7 +288,7 @@ paths:
         200:
           description: "Sucesso"
           schema:
-            $ref: '#/definitions/RetornoProdutos'
+            $ref: '#/definitions/ProductReturn'
         401:
           description: Não autorizado
         403:
@@ -298,7 +298,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
   /Buyer:
     get:
       tags:
@@ -314,7 +314,7 @@ paths:
         200:
           description: 'Lista de comprador'
           schema:
-            $ref: '#/definitions/RetornoComprador'
+            $ref: '#/definitions/BuyerReturn'
         401:
           description: 'Não autorizado'
         403:
@@ -332,8 +332,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdComprador'
-        - $ref: '#/parameters/Comprador'
+        - $ref: '#/parameters/IdBuyer'
+        - $ref: '#/parameters/Buyer'
       responses:
         200:
           description: 'Sucesso'
@@ -344,7 +344,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     put:
       tags:
         - Buyer
@@ -356,8 +356,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdComprador'
-        - $ref: '#/parameters/Comprador'
+        - $ref: '#/parameters/IdBuyer'
+        - $ref: '#/parameters/Buyer'
       responses:
         200:
           description: 'Sucesso'
@@ -368,7 +368,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     delete:
       tags:
         - Buyer
@@ -380,7 +380,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdComprador'
+        - $ref: '#/parameters/IdBuyer'
       responses:
         200:
          description: 'Sucesso'
@@ -391,8 +391,8 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
-  /Buyer/{codigoComprador}:
+            $ref: '#/definitions/ErrorReturn'
+  /Buyer/{buyerCode}:
     get:
       tags:
         - Buyer
@@ -404,7 +404,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: codigoComprador
+        - name: buyerCode
           type: integer
           in: path
           required: true
@@ -412,7 +412,7 @@ paths:
         200:
           description: "Sucesso"
           schema:
-            $ref: '#/definitions/RetornoComprador'
+            $ref: '#/definitions/BuyerReturn'
         401:
           description: Não autorizado
         403:
@@ -422,7 +422,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
   /Salesman:
     get:
       tags:
@@ -438,7 +438,7 @@ paths:
         200:
           description: 'Lista de motivos'
           schema:
-            $ref: '#/definitions/RetornoVedendor'
+            $ref: '#/definitions/SalesManReturn'
         401:
           description: 'Não autorizado'
         403:
@@ -456,8 +456,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdVendedor'
-        - $ref: '#/parameters/Vendedor'
+        - $ref: '#/parameters/IdSalesman'
+        - $ref: '#/parameters/SalesMan'
       responses:
         200:
           description: 'Sucesso'
@@ -468,7 +468,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     put:
       tags:
         - Salesman
@@ -480,8 +480,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdVendedor'
-        - $ref: '#/parameters/Vendedor'
+        - $ref: '#/parameters/IdSalesman'
+        - $ref: '#/parameters/SalesMan'
       responses:
         200:
           description: 'Sucesso'
@@ -492,7 +492,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     delete:
       tags:
         - Salesman
@@ -504,7 +504,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdVendedor'
+        - $ref: '#/parameters/IdSalesman'
       responses:
         200:
          description: 'Sucesso'
@@ -515,8 +515,8 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
-  /Salesman/{IdVendedor}:
+            $ref: '#/definitions/ErrorReturn'
+  /Salesman/{IdSalesMan}:
     get:
       tags:
         - Salesman
@@ -528,7 +528,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: IdVendedor
+        - name: IdSalesMan
           type: integer
           in: path
           required: true
@@ -536,7 +536,7 @@ paths:
         200:
           description: "Sucesso"
           schema:
-            $ref: '#/definitions/RetornoVedendor'
+            $ref: '#/definitions/SalesManReturn'
         401:
           description: Não autorizado
         403:
@@ -546,7 +546,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
   /ProductCategory:
     get:
       tags:
@@ -562,7 +562,7 @@ paths:
         200:
           description: 'Lista de motivos'
           schema:
-            $ref: '#/definitions/RetornoCategoria'
+            $ref: '#/definitions/CategoryReturn'
         401:
           description: 'Não autorizado'
         403:
@@ -580,8 +580,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdCategoriaProduto'
-        - $ref: '#/parameters/Produto'
+        - $ref: '#/parameters/IdProductCategory'
+        - $ref: '#/parameters/Product'
       responses:
         200:
           description: 'Sucesso'
@@ -592,7 +592,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     put:
       tags:
         - ProductCategory
@@ -604,8 +604,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdCategoriaProduto'
-        - $ref: '#/parameters/Produto'
+        - $ref: '#/parameters/IdProductCategory'
+        - $ref: '#/parameters/Product'
       responses:
         200:
           description: 'Sucesso'
@@ -616,7 +616,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     delete:
       tags:
         - ProductCategory
@@ -628,7 +628,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdCategoriaProduto'
+        - $ref: '#/parameters/IdProductCategory'
       responses:
         200:
          description: 'Sucesso'
@@ -639,7 +639,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
   /ProductCategory/{IdCategoriaProduto}:
     get:
       tags:
@@ -660,7 +660,7 @@ paths:
         200:
           description: "Sucesso"
           schema:
-            $ref: '#/definitions/RetornoProductCategory'
+            $ref: '#/definitions/ProductCategoryReturn'
         401:
           description: Não autorizado
         403:
@@ -670,7 +670,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
   /Sales:
     get:
       tags:
@@ -686,7 +686,7 @@ paths:
         200:
           description: 'Lista de motivos'
           schema:
-            $ref: '#/definitions/RetornoVendas'
+            $ref: '#/definitions/SalesReturn'
         401:
           description: 'Não autorizado'
         403:
@@ -704,9 +704,9 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/Vendedor'
-        - $ref: '#/parameters/Comprador'
-        - $ref: '#/parameters/Produto'
+        - $ref: '#/parameters/SalesMan'
+        - $ref: '#/parameters/Buyer'
+        - $ref: '#/parameters/Product'
       responses:
         200:
           description: 'Sucesso'
@@ -717,7 +717,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     put:
       tags:
         - Sales
@@ -729,8 +729,8 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdVendas'
-        - $ref: '#/parameters/Produto'
+        - $ref: '#/parameters/IdSales'
+        - $ref: '#/parameters/Product'
       responses:
         200:
           description: 'Sucesso'
@@ -741,7 +741,7 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
     delete:
       tags:
         - Sales
@@ -753,7 +753,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - $ref: '#/parameters/IdVendas'
+        - $ref: '#/parameters/IdSales'
       responses:
         200:
          description: 'Sucesso'
@@ -764,8 +764,8 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
-  /Sales/{IdVendedor}:
+            $ref: '#/definitions/ErrorReturn'
+  /Sales/{IdSalesman}:
     get:
       tags:
         - Sales
@@ -777,7 +777,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: IdVendedor
+        - name: IdSalesman
           type: integer
           in: path
           required: true
@@ -785,7 +785,7 @@ paths:
         200:
           description: "Sucesso"
           schema:
-            $ref: '#/definitions/RetornoVedendor'
+            $ref: '#/definitions/SalesManReturn'
         401:
           description: Não autorizado
         403:
@@ -795,4 +795,4 @@ paths:
         500:
           description: 'Internal Server Error'
           schema:
-            $ref: '#/definitions/RetornoErro'
+            $ref: '#/definitions/ErrorReturn'
