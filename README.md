@@ -1,18 +1,38 @@
 # hotmart-challenge-java-api
+All URIs are relative to *http://api.hotmart.com.br/v1/hotmart-challenge*
 
 ## About the API
-API de produto para gerenciamento de transações. API main URL `/productor/v1`.
+API de produto para gerenciamento de transações.
 
 ## Features
 Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 
-* Create a Transaction: `POST/productor/v1/transactions`
-* Update a Transaction: `PUT/productor/v1/transactions`
-* Delete a Transaction (by id): `DELETE/productor/v1/transactions/1`
-* Get report of all transactions created: `GET/productor/v1/transactions`
-* Find a unique transaction by id: `GET/productor/v1/transactions/1`
-* Find transactions by NSU (Unique sequential number): `GET/productor/v1/transactions/byNsu/{nsuNumber}`
-* Get Statistics about the transactions of the API: `GET/productor/v1/statistics`
+*BuyerApi* | [**deletarComprador**](docs/BuyerApi.md#deletarComprador) | **DELETE** /Buyer | Deletar comprador
+*BuyerApi* | [**getConsultarCommprador**](docs/BuyerApi.md#getConsultarCommprador) | **GET** /Buyer | Recupera a lista geral de comprador
+*BuyerApi* | [**getConsultarCompradorId**](docs/BuyerApi.md#getConsultarCompradorId) | **GET** /Buyer/{buyerCode} | Buscar informações do comprador especifico por id
+*BuyerApi* | [**postCadastrarComprador**](docs/BuyerApi.md#postCadastrarComprador) | **POST** /Buyer | Cadastro de comprador
+*BuyerApi* | [**putAlterarComprador**](docs/BuyerApi.md#putAlterarComprador) | **PUT** /Buyer | Alterar cadastro do comprador
+*ProductApi* | [**deletarProduto**](docs/ProductApi.md#deletarProduto) | **DELETE** /Product | Deletar produto
+*ProductApi* | [**getConsultarProdutoId**](docs/ProductApi.md#getConsultarProdutoId) | **GET** /Product/{idProduct} | Buscar informações de produtos por Id
+*ProductApi* | [**getConsultarProdutos**](docs/ProductApi.md#getConsultarProdutos) | **GET** /Product | Recupera a lista geral de produtos
+*ProductApi* | [**postCadastrarProduto**](docs/ProductApi.md#postCadastrarProduto) | **POST** /Product | Faz cadastro de produto
+*ProductApi* | [**putAlterarProduto**](docs/ProductApi.md#putAlterarProduto) | **PUT** /Product | Alterar cadastro de um produto
+*ProductCategoryApi* | [**deletarProductCategory**](docs/ProductCategoryApi.md#deletarProductCategory) | **DELETE** /ProductCategory | Deletar categoria produto
+*ProductCategoryApi* | [**getConsultarCategoria**](docs/ProductCategoryApi.md#getConsultarCategoria) | **GET** /ProductCategory | Recupera a lista geral de categoria de produtos
+*ProductCategoryApi* | [**getConsultarCategoriaProdutoId**](docs/ProductCategoryApi.md#getConsultarCategoriaProdutoId) | **GET** /ProductCategory/{IdCategoriaProduto} | Buscar informações de produtos por id
+*ProductCategoryApi* | [**postCadastrarCategoria**](docs/ProductCategoryApi.md#postCadastrarCategoria) | **POST** /ProductCategory | Cadastro de categoria de produtos
+*ProductCategoryApi* | [**putAlterarCategoriaProduto**](docs/ProductCategoryApi.md#putAlterarCategoriaProduto) | **PUT** /ProductCategory | Alterar categoria produto
+*SalesApi* | [**deletarVenda**](docs/SalesApi.md#deletarVenda) | **DELETE** /Sales | Deletar venda
+*SalesApi* | [**getConsultarVenda**](docs/SalesApi.md#getConsultarVenda) | **GET** /Sales | Recupera a lista geral de vendas
+*SalesApi* | [**getConsultarVendasId**](docs/SalesApi.md#getConsultarVendasId) | **GET** /Sales/{IdSalesman} | Buscar informações da lista de vendas por id
+*SalesApi* | [**postCadastrarVendas**](docs/SalesApi.md#postCadastrarVendas) | **POST** /Sales | Salva a vendas
+*SalesApi* | [**putAlterarVendas**](docs/SalesApi.md#putAlterarVendas) | **PUT** /Sales | Alterar a lista de vendas
+*SalesmanApi* | [**deletarVendedor**](docs/SalesmanApi.md#deletarVendedor) | **DELETE** /Salesman | Deletar cadastro de vendedor
+*SalesmanApi* | [**getConsultarVendedor**](docs/SalesmanApi.md#getConsultarVendedor) | **GET** /Salesman | Recupera a lista geral de vendedores
+*SalesmanApi* | [**getConsultarVendedorId**](docs/SalesmanApi.md#getConsultarVendedorId) | **GET** /Salesman/{IdSalesMan} | Buscar informações cadastro de vendedor por id
+*SalesmanApi* | [**postCadastrarVendedor**](docs/SalesmanApi.md#postCadastrarVendedor) | **POST** /Salesman | Salvar cadastro de vendedor
+*SalesmanApi* | [**putAlterarVendedor**](docs/SalesmanApi.md#putAlterarVendedor) | **PUT** /Salesman | Alterar o cadastro de vendedor
+*TransactionsApi* | [**getTransactions**](docs/TransactionsApi.md#getTransactions) | **GET** /Transactions | obter as transactions
 
 ### Details
 Este end-point é chamado para criar uma nova transação.
@@ -227,7 +247,7 @@ By default, the API will be available at [http://localhost:8080/productor/v1](ht
 
 ### Documentation
 
-* Swagger (development environment): [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+* Swagger (development environment): [http://localhost:8080/swagger.yaml](http://localhost:8080/swagger.yaml)
 
 #### Medium Articles
 
