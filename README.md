@@ -7,11 +7,11 @@ API de produto para gerenciamento de transações.
 ## Features
 Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 
-BuyerApi - Delete Transaction: `[**deletarComprador**](docs/BuyerApi.md#deletarComprador) | **DELETE** /Buyer | Deletar comprador`
-BuyerApi - Get Transaction: `[**getConsultarCommprador**](docs/BuyerApi.md#getConsultarCommprador) | **GET** /Buyer | Recupera a lista geral de comprador`
-BuyerApi - getId Transaction: `[**getConsultarCompradorId**](docs/BuyerApi.md#getConsultarCompradorId) | **GET** /Buyer/{buyerCode} | Buscar informações do comprador especifico por id`
-BuyerApi - post Transaction: `[**postCadastrarComprador**](docs/BuyerApi.md#postCadastrarComprador) | **POST** /Buyer | Cadastro de comprador`
-BuyerApi - put Transaction: `[**putAlterarComprador**](docs/BuyerApi.md#putAlterarComprador) | **PUT** /Buyer | Alterar cadastro do comprador`
+* BuyerApi - Delete Transaction: `[**deletarComprador**](docs/BuyerApi.md#deletarComprador) | **DELETE** /Buyer | Deletar comprador`
+* BuyerApi - Get Transaction: `[**getConsultarCommprador**](docs/BuyerApi.md#getConsultarCommprador) | **GET** /Buyer | Recupera a lista geral de comprador`
+* BuyerApi - getId Transaction: `[**getConsultarCompradorId**](docs/BuyerApi.md#getConsultarCompradorId) | **GET** /Buyer/{buyerCode} | Buscar informações do comprador especifico por id`
+* BuyerApi - post Transaction: `[**postCadastrarComprador**](docs/BuyerApi.md#postCadastrarComprador) | **POST** /Buyer | Cadastro de comprador`
+* BuyerApi - put Transaction: `[**putAlterarComprador**](docs/BuyerApi.md#putAlterarComprador) | **PUT** /Buyer | Alterar cadastro do comprador`
 
 `*ProductApi* | [**deletarProduto**](docs/ProductApi.md#deletarProduto) | **DELETE** /Product | Deletar produto`
 `*ProductApi* | [**getConsultarProdutoId**](docs/ProductApi.md#getConsultarProdutoId) | **GET** /Product/{idProduct} | Buscar informações de produtos por Id`
