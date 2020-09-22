@@ -7,12 +7,6 @@ API de produto para gerenciamento de transações.
 ## Features
 Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 
-* BuyerApi: `[**deletarComprador**](docs/BuyerApi.md#deletarComprador) | **DELETE** /Buyer | Deletar comprador`
-* BuyerApi: `[**getConsultarCommprador**](docs/BuyerApi.md#getConsultarCommprador) | **GET** /Buyer | Recupera a lista geral de comprador`
-* BuyerApi: `[**getConsultarCompradorId**](docs/BuyerApi.md#getConsultarCompradorId) | **GET** /Buyer/{buyerCode} | Buscar informações do comprador especifico por id`
-* BuyerApi: `[**postCadastrarComprador**](docs/BuyerApi.md#postCadastrarComprador) | **POST** /Buyer | Cadastro de comprador`
-* BuyerApi: `[**putAlterarComprador**](docs/BuyerApi.md#putAlterarComprador) | **PUT** /Buyer | Alterar cadastro do comprador`
-
 * ProductApi: `[**deletarProduto**](docs/ProductApi.md#deletarProduto) | **DELETE** /Product | Deletar produto`
 * ProductApi: `[**getConsultarProdutoId**](docs/ProductApi.md#getConsultarProdutoId) | **GET** /Product/{idProduct} | Buscar informações de produtos por Id`
 * ProductApi: `[**getConsultarProdutos**](docs/ProductApi.md#getConsultarProdutos) | **GET** /Product | Recupera a lista geral de produtos`
@@ -31,6 +25,12 @@ Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 * SalesApi: `[**postCadastrarVendas**](docs/SalesApi.md#postCadastrarVendas) | **POST** /Sales | Salva a vendas`
 * SalesApi: `[**putAlterarVendas**](docs/SalesApi.md#putAlterarVendas) | **PUT** /Sales | Alterar a lista de vendas`
 
+* BuyerApi: `[**deletarComprador**](docs/BuyerApi.md#deletarComprador) | **DELETE** /Buyer | Deletar comprador`
+* BuyerApi: `[**getConsultarCommprador**](docs/BuyerApi.md#getConsultarCommprador) | **GET** /Buyer | Recupera a lista geral de comprador`
+* BuyerApi: `[**getConsultarCompradorId**](docs/BuyerApi.md#getConsultarCompradorId) | **GET** /Buyer/{buyerCode} | Buscar informações do comprador especifico por id`
+* BuyerApi: `[**postCadastrarComprador**](docs/BuyerApi.md#postCadastrarComprador) | **POST** /Buyer | Cadastro de comprador`
+* BuyerApi: `[**putAlterarComprador**](docs/BuyerApi.md#putAlterarComprador) | **PUT** /Buyer | Alterar cadastro do comprador`
+
 * SalesmanApi: `[**deletarVendedor**](docs/SalesmanApi.md#deletarVendedor) | **DELETE** /Salesman | Deletar cadastro de vendedor`
 * SalesmanApi: `[**getConsultarVendedor**](docs/SalesmanApi.md#getConsultarVendedor) | **GET** /Salesman | Recupera a lista geral de vendedores`
 * SalesmanApi: `[**getConsultarVendedorId**](docs/SalesmanApi.md#getConsultarVendedorId) | **GET** /Salesman/{IdSalesMan} | Buscar informações cadastro de vendedor por id`
@@ -38,16 +38,14 @@ Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 * SalesmanApi: `[**putAlterarVendedor**](docs/SalesmanApi.md#putAlterarVendedor) | **PUT** /Salesman | Alterar o cadastro de vendedor`
 
 * TransactionsApi: `[**getTransactions**](docs/TransactionsApi.md#getTransactions) | **GET** /Transactions | obter as transactions`
-
-
-* Create a Transaction: `POST/financial/v1/transactions`
-* Update a Transaction: `PUT/financial/v1/transactions`
-* Delete a Transaction (by id): `DELETE/financial/v1/transactions/1`
+* TransactionsApi:  `POST/financial/v1/transactions`
+* TransactionsApi:  `PUT/financial/v1/transactions`
+* TransactionsApi:  (by id): `DELETE/financial/v1/transactions/1`
 * Get report of transactions in a period of time (sorted and paginated): `GET/financial/v1/transactions?startDate=2020-01-01&endDate=2020-09-20&page=2&size=5&sort=DESC`
-* Find a unique transaction by id: `GET/financial/v1/transactions/1`
-* Find a unique transaction by id, but filtering JSON fields: `GET/financial/v1/transactions/1?fields=id,nsu,transactionDate,amount`
-* Find transactions by NSU (Unique sequential number): `GET/financial/v1/transactions/byNsu/{nsuNumber}`
-* Get Statistics about the transactions of the API: `GET/financial/v1/statistics`
+* TransactionsApi by id: `GET/financial/v1/transactions/1`
+* TransactionsApi by id, but filtering JSON fields: `GET/financial/v1/transactions/1?fields=id,nsu,transactionDate,amount`
+* TransactionsApi by NSU (Unique sequential number): `GET/financial/v1/transactions/byNsu/{nsuNumber}`
+* TransactionsApi about the transactions of the API: `GET/financial/v1/statistics`
 
 ### Details
 Este end-point é chamado para criar uma nova transação.
