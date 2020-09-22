@@ -1,6 +1,6 @@
 /*
  * hotmart-challenge
- * Especificação da API Hotmart Challenge
+ * API Hotmart Challenge
  *
  * OpenAPI spec version: 1.0.0
  * Contact: bismarck@ufmg.br

@@ -1,6 +1,6 @@
 /*
  * hotmart-challenge
- * Especificação da API Hotmart Challenge
+ * API Hotmart Challenge
  *
  * OpenAPI spec version: 1.0.0
  * Contact: bismarck@ufmg.br
@@ -28,7 +28,7 @@ import java.io.IOException;
  * Erro de validação
  */
 @ApiModel(description = "Erro de validação")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-21T21:49:30.173Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T11:27:03.523Z")
 
 
 

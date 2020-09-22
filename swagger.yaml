@@ -1,11 +1,10 @@
 swagger: '2.0'
-
 info:
-  description: Especificação da API Hotmart Challenge
+  description: API Hotmart Challenge
   version: 1.0.0
   title: hotmart-challenge
   contact:
-    name: Desafio Hotmart
+    name: Bismarck - Desafio Hotmart
     email: bismarck@ufmg.br
 host: api.hotmart.com.br
 basePath: /v1/hotmart-challenge
@@ -21,144 +20,144 @@ parameters:
     type: integer
     in: path
     required: true
-    description: 'Código do produto'
+    description: Código do produto
   IdBuyer:
     name: buyerCode
     type: integer
     in: path
     required: true
-    description: 'Código do comprador'
+    description: Código do comprador
   IdSalesman:
     name: salesManCode
     type: integer
     in: path
     required: true
-    description: 'Código do Vedendor'
+    description: Código do Vedendor
   IdSales:
     name: salesCode
     type: integer
     in: path
     required: true
-    description: 'Código do Vedas'
+    description: Código do Vedas
   IdProductCategory:
     name: ProductCategoryCode
     type: integer
     in: path
     required: true
-    description: 'Código da cartegoria de Produto'
+    description: Código da cartegoria de Produto
   Description:
     name: description
     in: header
     type: string
     required: true
-    description: 'Descricao do produto'
+    description: Descricao do produto
   SalesMan:
     name: salesMan
     in: header
     type: string
     required: true
-    description: 'Nome do vendedor'
+    description: Nome do vendedor
   Buyer:
     name: buyer
     in: header
     type: string
     required: true
-    description: 'Nome do comprador'
+    description: Nome do comprador
   Product:
     name: product
     in: header
     type: string
     required: true
-    description: 'Nome do produto'
+    description: Nome do produto
 definitions:
   ProductReturn:
     type: object
     properties:
       productCode:
         type: integer
-        description: 'id do produto'
+        description: id do produto
         example: 1
       product:
         type: string
-        description: 'Nome do produto'
-        example: 'Produto-A1'
+        description: Nome do produto
+        example: Produto-A1
       description:
         type: string
-        description: 'Descrição do produto'
-        example: 'produto de teste A1'
+        description: Descrição do produto
+        example: produto de teste A1
       creationDate:
         type: string
-        example: "16/09/2020"
-        description: 'data de criação'
+        example: 16/09/2020
+        description: data de criação
   BuyerReturn:
     type: object
     properties:
       buyerCode:
         type: integer
-        description: 'id do produto'
+        description: id do produto
         example: 1
       buyer:
         type: string
-        description: 'Nome do comprador'
-        example: 'Nome do comprador'
+        description: Nome do comprador
+        example: Nome do comprador
   SalesManReturn:
     type: object
     properties:
       SalesManCode:
         type: integer
-        description: 'id do vedendor'
+        description: id do vedendor
         example: 1
       salesMan:
         type: string
-        description: 'Nome do vedendor'
-        example: 'Nome do vedendor'
+        description: Nome do vedendor
+        example: Nome do vedendor
   CategoryReturn:
     type: object
     properties:
       productCategoryCode:
         type: integer
-        description: 'id do categoria'
+        description: id do categoria
         example: 1
       productCategory:
         type: string
-        description: 'Nome do categoria'
-        example: 'Nome do categoria'
+        description: Nome do categoria
+        example: Nome do categoria
   ProductCategoryReturn:
     type: object
     properties:
       ProductCategoryCode:
         type: integer
-        description: 'id do categoria'
+        description: id do categoria
         example: 1
       ProductCategory:
         type: string
-        description: 'Produto da categoria'
-        example: 'Produto da categoria'
+        description: Produto da categoria
+        example: Produto da categoria
   SalesReturn:
     type: object
     properties:
       salesCode:
         type: integer
-        description: 'id do vendas'
+        description: id do vendas
         example: 1
       salesMan:
         type: string
-        description: 'Nome do vedendor'
-        example: 'Juliana'
+        description: Nome do vedendor
+        example: Juliana
       buyer:
         type: string
-        description: 'Nome do comprador produto'
-        example: 'Bismarck'
+        description: Nome do comprador produto
+        example: Bismarck
       product:
         type: string
-        description: 'Descrição do produto vendido'
-        example: 'Gopro Hero 7'
+        description: Descrição do produto vendido
+        example: Gopro Hero 7
   ErrorReturn:
     type: array
     items:
       $ref: '#/definitions/Error'
   Error:
-    description: 'Erro de validação'
+    description: Erro de validação
     type: object
     required:
       - code
@@ -166,12 +165,12 @@ definitions:
     properties:
       code:
         type: string
-        description: 'Código do erro'
+        description: Código do erro
         example: 23
       description:
         type: string
-        description: 'Descrição do erro'
-        example: 'Nome não pode ficar em branco'
+        description: Descrição do erro
+        example: Nome não pode ficar em branco
 paths:
   /Product:
     get:
@@ -185,16 +184,16 @@ paths:
       produces:
         - application/json
       responses:
-        200:
-          description: 'Lista de produtos'
+        '200':
+          description: Lista de produtos
           schema:
             $ref: '#/definitions/ProductReturn'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
     post:
       tags:
         - Product
@@ -210,14 +209,14 @@ paths:
         - $ref: '#/parameters/Product'
         - $ref: '#/parameters/Description'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     put:
@@ -235,14 +234,14 @@ paths:
         - $ref: '#/parameters/Product'
         - $ref: '#/parameters/Description'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     delete:
@@ -258,17 +257,17 @@ paths:
       parameters:
         - $ref: '#/parameters/IdProduct'
       responses:
-        200:
-         description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
-  /Product/{idProduct}:
+  '/Product/{idProduct}':
     get:
       tags:
         - Product
@@ -285,18 +284,18 @@ paths:
           in: path
           required: true
       responses:
-        200:
-          description: "Sucesso"
+        '200':
+          description: Sucesso
           schema:
             $ref: '#/definitions/ProductReturn'
-        401:
+        '401':
           description: Não autorizado
-        403:
+        '403':
           description: Acesso negado
-        404:
+        '404':
           description: Cartões não encontrados
-        500:
-          description: 'Internal Server Error'
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
   /Buyer:
@@ -311,16 +310,16 @@ paths:
       produces:
         - application/json
       responses:
-        200:
-          description: 'Lista de comprador'
+        '200':
+          description: Lista de comprador
           schema:
             $ref: '#/definitions/BuyerReturn'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
     post:
       tags:
         - Buyer
@@ -335,14 +334,14 @@ paths:
         - $ref: '#/parameters/IdBuyer'
         - $ref: '#/parameters/Buyer'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     put:
@@ -359,14 +358,14 @@ paths:
         - $ref: '#/parameters/IdBuyer'
         - $ref: '#/parameters/Buyer'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     delete:
@@ -382,17 +381,17 @@ paths:
       parameters:
         - $ref: '#/parameters/IdBuyer'
       responses:
-        200:
-         description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
-  /Buyer/{buyerCode}:
+  '/Buyer/{buyerCode}':
     get:
       tags:
         - Buyer
@@ -409,18 +408,18 @@ paths:
           in: path
           required: true
       responses:
-        200:
-          description: "Sucesso"
+        '200':
+          description: Sucesso
           schema:
             $ref: '#/definitions/BuyerReturn'
-        401:
+        '401':
           description: Não autorizado
-        403:
+        '403':
           description: Acesso negado
-        404:
+        '404':
           description: Cartões não encontrados
-        500:
-          description: 'Internal Server Error'
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
   /Salesman:
@@ -435,16 +434,16 @@ paths:
       produces:
         - application/json
       responses:
-        200:
-          description: 'Lista de motivos'
+        '200':
+          description: Lista de motivos
           schema:
             $ref: '#/definitions/SalesManReturn'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
     post:
       tags:
         - Salesman
@@ -459,14 +458,14 @@ paths:
         - $ref: '#/parameters/IdSalesman'
         - $ref: '#/parameters/SalesMan'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     put:
@@ -483,14 +482,14 @@ paths:
         - $ref: '#/parameters/IdSalesman'
         - $ref: '#/parameters/SalesMan'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     delete:
@@ -506,17 +505,17 @@ paths:
       parameters:
         - $ref: '#/parameters/IdSalesman'
       responses:
-        200:
-         description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
-  /Salesman/{IdSalesMan}:
+  '/Salesman/{IdSalesMan}':
     get:
       tags:
         - Salesman
@@ -533,18 +532,18 @@ paths:
           in: path
           required: true
       responses:
-        200:
-          description: "Sucesso"
+        '200':
+          description: Sucesso
           schema:
             $ref: '#/definitions/SalesManReturn'
-        401:
+        '401':
           description: Não autorizado
-        403:
+        '403':
           description: Acesso negado
-        404:
+        '404':
           description: Cartões não encontrados
-        500:
-          description: 'Internal Server Error'
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
   /ProductCategory:
@@ -559,16 +558,16 @@ paths:
       produces:
         - application/json
       responses:
-        200:
-          description: 'Lista de motivos'
+        '200':
+          description: Lista de motivos
           schema:
             $ref: '#/definitions/CategoryReturn'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
     post:
       tags:
         - ProductCategory
@@ -583,14 +582,14 @@ paths:
         - $ref: '#/parameters/IdProductCategory'
         - $ref: '#/parameters/Product'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     put:
@@ -607,14 +606,14 @@ paths:
         - $ref: '#/parameters/IdProductCategory'
         - $ref: '#/parameters/Product'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     delete:
@@ -630,17 +629,17 @@ paths:
       parameters:
         - $ref: '#/parameters/IdProductCategory'
       responses:
-        200:
-         description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
-  /ProductCategory/{IdCategoriaProduto}:
+  '/ProductCategory/{IdCategoriaProduto}':
     get:
       tags:
         - ProductCategory
@@ -657,18 +656,18 @@ paths:
           in: path
           required: true
       responses:
-        200:
-          description: "Sucesso"
+        '200':
+          description: Sucesso
           schema:
             $ref: '#/definitions/ProductCategoryReturn'
-        401:
+        '401':
           description: Não autorizado
-        403:
+        '403':
           description: Acesso negado
-        404:
+        '404':
           description: Cartões não encontrados
-        500:
-          description: 'Internal Server Error'
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
   /Sales:
@@ -683,16 +682,16 @@ paths:
       produces:
         - application/json
       responses:
-        200:
-          description: 'Lista de motivos'
+        '200':
+          description: Lista de motivos
           schema:
             $ref: '#/definitions/SalesReturn'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
     post:
       tags:
         - Sales
@@ -708,14 +707,14 @@ paths:
         - $ref: '#/parameters/Buyer'
         - $ref: '#/parameters/Product'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     put:
@@ -732,14 +731,14 @@ paths:
         - $ref: '#/parameters/IdSales'
         - $ref: '#/parameters/Product'
       responses:
-        200:
-          description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
     delete:
@@ -755,17 +754,17 @@ paths:
       parameters:
         - $ref: '#/parameters/IdSales'
       responses:
-        200:
-         description: 'Sucesso'
-        401:
-          description: 'Não autorizado'
-        403:
-          description: 'Não tem permissão para executar essa ação'
-        500:
-          description: 'Internal Server Error'
+        '200':
+          description: Sucesso
+        '401':
+          description: Não autorizado
+        '403':
+          description: Não tem permissão para executar essa ação
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'
-  /Sales/{IdSalesman}:
+  '/Sales/{IdSalesman}':
     get:
       tags:
         - Sales
@@ -782,17 +781,17 @@ paths:
           in: path
           required: true
       responses:
-        200:
-          description: "Sucesso"
+        '200':
+          description: Sucesso
           schema:
             $ref: '#/definitions/SalesManReturn'
-        401:
+        '401':
           description: Não autorizado
-        403:
+        '403':
           description: Acesso negado
-        404:
+        '404':
           description: Cartões não encontrados
-        500:
-          description: 'Internal Server Error'
+        '500':
+          description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorReturn'

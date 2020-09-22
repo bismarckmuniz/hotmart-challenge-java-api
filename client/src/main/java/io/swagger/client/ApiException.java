@@ -1,6 +1,6 @@
 /*
  * hotmart-challenge
- * Especificação da API Hotmart Challenge
+ * API Hotmart Challenge
  *
  * OpenAPI spec version: 1.0.0
  * Contact: bismarck@ufmg.br
@@ -16,7 +16,7 @@ package io.swagger.client;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-21T21:49:30.173Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-09-22T11:27:03.523Z")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
