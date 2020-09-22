@@ -7,12 +7,11 @@ API de produto para gerenciamento de transações.
 ## Features
 Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 
-`*BuyerApi*`
-`[**deletarComprador**](docs/BuyerApi.md#deletarComprador) | **DELETE** /Buyer | Deletar comprador`
-`**getConsultarCommprador**](docs/BuyerApi.md#getConsultarCommprador) | **GET** /Buyer | Recupera a lista geral de comprador`
-`**getConsultarCompradorId**](docs/BuyerApi.md#getConsultarCompradorId) | **GET** /Buyer/{buyerCode} | Buscar informações do comprador especifico por id`
-`**postCadastrarComprador**](docs/BuyerApi.md#postCadastrarComprador) | **POST** /Buyer | Cadastro de comprador`
-`[**putAlterarComprador**](docs/BuyerApi.md#putAlterarComprador) | **PUT** /Buyer | Alterar cadastro do comprador`
+BuyerApi - Delete Transaction: `[**deletarComprador**](docs/BuyerApi.md#deletarComprador) | **DELETE** /Buyer | Deletar comprador`
+BuyerApi - Get Transaction: `[**getConsultarCommprador**](docs/BuyerApi.md#getConsultarCommprador) | **GET** /Buyer | Recupera a lista geral de comprador`
+BuyerApi - getId Transaction: `[**getConsultarCompradorId**](docs/BuyerApi.md#getConsultarCompradorId) | **GET** /Buyer/{buyerCode} | Buscar informações do comprador especifico por id`
+BuyerApi - post Transaction: `[**postCadastrarComprador**](docs/BuyerApi.md#postCadastrarComprador) | **POST** /Buyer | Cadastro de comprador`
+BuyerApi - put Transaction: `[**putAlterarComprador**](docs/BuyerApi.md#putAlterarComprador) | **PUT** /Buyer | Alterar cadastro do comprador`
 
 `*ProductApi* | [**deletarProduto**](docs/ProductApi.md#deletarProduto) | **DELETE** /Product | Deletar produto`
 `*ProductApi* | [**getConsultarProdutoId**](docs/ProductApi.md#getConsultarProdutoId) | **GET** /Product/{idProduct} | Buscar informações de produtos por Id`
@@ -35,6 +34,16 @@ Esta API fornece endpoints HTTP e ferramentas para o seguinte:
 `*SalesmanApi* | [**postCadastrarVendedor**](docs/SalesmanApi.md#postCadastrarVendedor) | **POST** /Salesman | Salvar cadastro de vendedor`
 `*SalesmanApi* | [**putAlterarVendedor**](docs/SalesmanApi.md#putAlterarVendedor) | **PUT** /Salesman | Alterar o cadastro de vendedor`
 `*TransactionsApi* | [**getTransactions**](docs/TransactionsApi.md#getTransactions) | **GET** /Transactions | obter as transactions`
+
+
+* Create a Transaction: `POST/financial/v1/transactions`
+* Update a Transaction: `PUT/financial/v1/transactions`
+* Delete a Transaction (by id): `DELETE/financial/v1/transactions/1`
+* Get report of transactions in a period of time (sorted and paginated): `GET/financial/v1/transactions?startDate=2020-01-01&endDate=2020-09-20&page=2&size=5&sort=DESC`
+* Find a unique transaction by id: `GET/financial/v1/transactions/1`
+* Find a unique transaction by id, but filtering JSON fields: `GET/financial/v1/transactions/1?fields=id,nsu,transactionDate,amount`
+* Find transactions by NSU (Unique sequential number): `GET/financial/v1/transactions/byNsu/{nsuNumber}`
+* Get Statistics about the transactions of the API: `GET/financial/v1/statistics`
 
 ### Details
 Este end-point é chamado para criar uma nova transação.
