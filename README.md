@@ -1,3 +1,5 @@
+# version 2.0
+
 # hotmart-challenge-java-api
 All URIs are relative to *http://api.hotmart.com.br/v1/hotmart-challenge*
 
